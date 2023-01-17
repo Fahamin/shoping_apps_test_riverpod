@@ -7,10 +7,11 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shoping_apps_test/RouteManage/routes.dart';
 import 'package:shoping_apps_test/model/login_user_input.dart';
+import 'package:shoping_apps_test/view/android_main_page.dart';
 
-import '../Reepository/product_repository.dart';
-import '../Utils/contance.dart';
-import '../model/authmodel.dart';
+import '../../Reepository/product_repository.dart';
+import '../../Utils/contance.dart';
+import '../../model/authmodel.dart';
 
 class LoginWithUserID extends StatefulWidget {
   const LoginWithUserID({Key? key}) : super(key: key);
@@ -49,20 +50,20 @@ class _LoginWithUserIDState extends State<LoginWithUserID> {
                 DInput(
                   controller: emailcontroller,
                   hint: 'Enter Your Email',
-                  label: 'Label 3',
+                 
                 ),
                 DView.spaceHeight(),
                 DInput(
                   controller: passwordcontroller,
                   hint: 'Enter Your Password',
-                  label: 'Label 3',
+                 
                 ),
                 DView.spaceHeight(),
                 ElevatedButton(
                     onPressed: () async {
                       loginToMainPage();
                     },
-                    child: Text("Login")),
+                    child: const Text("Login")),
                 DView.spaceHeight(),
                 ElevatedButton(
                     onPressed: () async {
@@ -92,7 +93,7 @@ class _LoginWithUserIDState extends State<LoginWithUserID> {
         print("data is here i am seeing:${state.success}");
         if (state.success == true) {
           Fluttertoast.showToast(msg: "Login successfully");
-          Get.off(Routes.androidMainPage);
+          Get.off(AndroidMainPage());
         } else {
           Fluttertoast.showToast(msg: "User not found");
         }

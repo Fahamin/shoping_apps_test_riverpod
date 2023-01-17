@@ -5,6 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shoping_apps_test/RouteManage/routes.dart';
 import 'package:shoping_apps_test/view/android_main_page.dart';
+import 'package:shoping_apps_test/view/profilePage/login_with_userid.dart';
 
 import '../Utils/contance.dart';
 
@@ -18,9 +19,9 @@ class SplashScreen extends StatelessWidget {
 
       var userID = db.getString("uid");
       if (userID != null) {
-        Get.toNamed(Routes.androidMainPage);
+        Get.off(AndroidMainPage());
       } else {
-        Get.toNamed(Routes.loginWithUserID);
+        Get.off(LoginWithUserID());
       }
     });
     return Scaffold(
