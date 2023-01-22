@@ -50,13 +50,11 @@ class _LoginWithUserIDState extends State<LoginWithUserID> {
                 DInput(
                   controller: emailcontroller,
                   hint: 'Enter Your Email',
-                 
                 ),
                 DView.spaceHeight(),
                 DInput(
                   controller: passwordcontroller,
                   hint: 'Enter Your Password',
-                 
                 ),
                 DView.spaceHeight(),
                 ElevatedButton(

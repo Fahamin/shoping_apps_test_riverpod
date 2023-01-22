@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:shoping_apps_test/RouteManage/routes.dart';
 
@@ -6,7 +8,9 @@ import 'Utils/colors.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
