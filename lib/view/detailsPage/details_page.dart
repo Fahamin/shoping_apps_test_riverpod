@@ -14,74 +14,74 @@ import 'detailsPageComponent/summary.dart';
 import 'detailsPageComponent/title_rating_price.dart';
 
 class DetailsPage extends StatelessWidget {
-  late Data product;
+  Data product;
 
   DetailsPage({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: Icon(
-          Icons.arrow_back_ios,
-          color: Colors.black,
-        ),
-        actions: [
-          InkWell(
-            onTap: () {
-              Get.to(CardPage());
-            },
-            child: const Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: Icon(
-                Icons.shopping_cart,
-                color: Appcolors.primaryColor,
-              ),
-            ),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0.0,
+          leading: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
           ),
-          DView.spaceHeight(),
-        ],
-        title: Text("detailsPage"),
-      ),
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Expanded(
-              child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ProductImageView(
-                    image: product.images, discount: product.discount),
-                DView.spaceHeight(),
-                TitleRatingPrice(
-                    product_title: product.title.toString(),
-                    price: product.price.toString(),
-                    rating: product.rating.toString()),
-                DView.spaceHeight(),
-                BrandSKUSize(
-                  stock: product.stock.toString(),
-                ),
-                DView.spaceHeight(),
-                Visibility(
-                    visible: true,
-                    child: Summary(
-                      description: product.thumdescription.toString(),
-                    ))
-              ],
+          actions: [
+            GestureDetector(
+              onTap: () {
+                Get.to(CardPage());
+              },
+              child: const Padding(
+                  padding: EdgeInsets.only(left: 20),
+                  child: Icon(
+                    Icons.shopping_cart_outlined,
+                    color: Appcolors.primaryColor,
+                  )),
             ),
-          )),
-          AddToCartAndBuyNow(
-            addToCartModel: AddToCartModel(
-                title: product.title.toString(),
-                image: product.thumimage.toString(),
-                price: product.price.toString()),
-          )
-        ],
-      ),
-    );
+            DView.spaceHeight(),
+          ],
+        ),
+        body: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                  child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ProductImageView(
+                    image: product.images,
+                    discount: product.discount,
+                  ),
+                  DView.spaceHeight(),
+                  TitleRatingPrice(
+                    price: product.price.toString(),
+                    product_title: product.title.toString(),
+                    rating: product.rating.toString(),
+                  ),
+                  DView.spaceHeight(),
+                  BrandSKUSize(
+                    stock: product.stock.toString(),
+                  ),
+                  DView.spaceHeight(),
+                  Visibility(
+                      visible: true,
+                      child: Summary(
+                        description: product.thumdescription.toString(),
+                      ))
+                ],
+              )),
+            ),
+            AddToCartAndBuyNow(
+              addToCartModel: AddToCartModel(
+                  title: product.title.toString(),
+                  image: product.thumimage.toString(),
+                  price: product.price.toString()),
+            )
+          ],
+        ));
   }
 }

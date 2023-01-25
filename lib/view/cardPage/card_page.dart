@@ -2,23 +2,17 @@ import 'package:d_view/d_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
-import 'package:monarch_mart/utils/colors.dart';
-import 'package:monarch_mart/utils/string.dart';
-import 'package:monarch_mart/utils/widgets/card_profile_appbar.dart';
-import 'package:monarch_mart/utils/widgets/spaceer.dart';
-import 'package:monarch_mart/view/android_view/cardpage/cardcomponent/single_card_product.dart';
-import 'package:monarch_mart/view/android_view/profilepage/login/checkout_page.dart';
-import 'package:monarch_mart/view_model/carthandler/cart_handler_provider.dart';
+import 'package:get/get.dart';
 
 import '../../Utils/colors.dart';
 import '../../Utils/string.dart';
+import '../profilePage/checkout_page.dart';
 import 'cardPageComponent/card_profile_appbar.dart';
 import 'cardPageComponent/cart_handler_provider.dart';
 import 'cardPageComponent/single_card_product.dart';
 
-class AndroidCardPage extends StatelessWidget {
-  const AndroidCardPage({super.key});
+class CardPage extends StatelessWidget {
+  const CardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -76,10 +70,8 @@ class AndroidCardPage extends StatelessWidget {
                   return GestureDetector(
                     onTap: () {
                       if (ref.watch(totalAmoutn) > 10) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Checkout()));
+                        // here is checkout page
+                            Get.to(Checkout());
                       } else {
                         Fluttertoast.showToast(msg: "Increase you Price");
                       }
