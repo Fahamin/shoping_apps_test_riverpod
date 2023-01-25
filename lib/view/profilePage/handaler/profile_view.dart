@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../Utils/contance.dart';
 
+// for reverpot state managment
 final profileProvider =
     StateNotifierProvider<profileNotifier, List<String>>((ref) {
   return profileNotifier();
