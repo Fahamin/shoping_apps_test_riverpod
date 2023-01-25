@@ -62,12 +62,7 @@ appRoutes() => [
         transition: Transition.leftToRightWithFade,
         transitionDuration: Duration(milliseconds: 500),
       ),
-      GetPage(
-        name: Routes.detailsPage,
-        page: () => DetailsPage(),
-        transition: Transition.leftToRightWithFade,
-        transitionDuration: Duration(milliseconds: 500),
-      ),
+
       GetPage(
         name: Routes.homePage,
         page: () => HomePage(),
